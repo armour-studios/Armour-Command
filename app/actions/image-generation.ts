@@ -2,6 +2,7 @@
 
 import { createServerSupabaseClient } from '@/lib/supabase/server'
 import { z } from 'zod'
+import OpenAI from 'openai'
 
 // This is a scaffolding for image generation
 // You'll integrate with DALL-E, Midjourney, or similar service
@@ -67,7 +68,7 @@ export async function generateImage(
 
     // Save to Supabase Storage
     const fileName = `generated-images/${validated.organization_id}/${Date.now()}.png`
-    
+
     const { error: uploadError } = await supabase.storage
       .from('assets')
       .upload(fileName, Buffer.from(imageUrl, 'base64'), {
@@ -97,23 +98,24 @@ export async function generateImage(
   }
 }
 
-// Placeholder for actual image generation API call
+// Actual image generation API call
 async function callImageGenerationAPI(prompt: string): Promise<string> {
-  // Example implementation:
-  // const response = await fetch('https://api.openai.com/v1/images/generations', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: JSON.stringify({
-  //     prompt,
-  //     n: 1,
-  //     size: '1024x1024',
-  //   }),
-  // })
-  // const data = await response.json()
-  // return data.data[0].b64_json
+  const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  })
 
-  throw new Error('Image generation API not configured')
+  const response = await openai.images.generate({
+    model: "dall-e-3",
+    prompt: prompt,
+    n: 1,
+    size: "1024x1024",
+    response_format: "b64_json",
+  })
+
+  const image = response.data[0].b64_json
+  if (!image) {
+    throw new Error('No image generated')
+  }
+
+  return image
 }
