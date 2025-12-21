@@ -1,0 +1,68 @@
+[api]
+enabled = true
+max_conn_delay = 10
+
+[db]
+major_version = 15
+
+[db.pooler]
+enabled = false
+
+[realtime]
+enabled = true
+max_concurrent_users = 200
+
+[realtime.extension_schemas]
+postgrest = "next"
+graphql = "graphql"
+
+[studio]
+enabled = true
+
+[auth]
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["https://your-domain.vercel.app"]
+jwt_expiry = 3600
+enable_signup = true
+enable_anonymous_signups = false
+
+[auth.email]
+enable_signup = true
+double_confirm_changes = false
+enable_confirmations = true
+
+[auth.external.google]
+enabled = false
+client_id = ""
+secret = ""
+
+[functions]
+verify_jwt = true
+
+[analytics]
+enabled = true
+
+[storage]
+file_size_limit = 52428800
+s3_host_port = 54321
+s3_region = "local"
+s3_access_key = "625729a08b95740f922e0"
+s3_secret_key = "85063143f3cc42a3b0311da4e3a853e"
+s3_url_format_uses_rfc2986 = false
+
+[storage.buckets.assets]
+public = false
+file_size_limit = 52428800
+allowed_mime_types = ["image/jpeg", "image/png", "image/webp", "image/gif", "application/pdf", "video/mp4"]
+
+[smtp]
+enabled = false
+host = ""
+port = 587
+user = ""
+password = ""
+admin_email = "support@armournexus.app"
+from_label = "Armour Nexus"
+
+[logging]
+vector_enabled = false
