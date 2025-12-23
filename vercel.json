@@ -3,88 +3,118 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "projectSettings": {
-    "rootDirectory": ".",
-    "nodeVersion": "18.x"
-  },
   "env": [
     {
       "key": "NEXT_PUBLIC_SUPABASE_URL",
       "description": "Supabase project URL",
       "value": "",
-      "target": ["production", "preview", "development"]
+      "target": [
+        "production",
+        "preview",
+        "development"
+      ]
     },
     {
       "key": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
       "description": "Supabase anonymous key",
       "value": "",
-      "target": ["production", "preview", "development"]
+      "target": [
+        "production",
+        "preview",
+        "development"
+      ]
     },
     {
       "key": "SUPABASE_SERVICE_ROLE_KEY",
       "description": "Supabase service role key (keep secret)",
       "value": "",
-      "target": ["production"]
+      "target": [
+        "production"
+      ]
     },
     {
       "key": "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY",
       "description": "Stripe publishable key",
       "value": "",
-      "target": ["production", "preview", "development"]
+      "target": [
+        "production",
+        "preview",
+        "development"
+      ]
     },
     {
       "key": "STRIPE_SECRET_KEY",
       "description": "Stripe secret key (keep secret)",
       "value": "",
-      "target": ["production"]
+      "target": [
+        "production"
+      ]
     },
     {
       "key": "STRIPE_WEBHOOK_SECRET",
       "description": "Stripe webhook secret (keep secret)",
       "value": "",
-      "target": ["production"]
+      "target": [
+        "production"
+      ]
     },
     {
       "key": "STRIPE_PRICE_ARMOURED",
       "description": "Stripe price ID for Armoured plan",
       "value": "",
-      "target": ["production"]
+      "target": [
+        "production"
+      ]
     },
     {
       "key": "STRIPE_PRICE_ELITE",
       "description": "Stripe price ID for Elite plan",
       "value": "",
-      "target": ["production"]
+      "target": [
+        "production"
+      ]
     },
     {
       "key": "OPENAI_API_KEY",
       "description": "OpenAI API key (keep secret)",
       "value": "",
-      "target": ["production"]
+      "target": [
+        "production"
+      ]
     },
     {
       "key": "GOOGLE_CLIENT_ID",
       "description": "Google OAuth client ID",
       "value": "",
-      "target": ["production", "preview", "development"]
+      "target": [
+        "production",
+        "preview",
+        "development"
+      ]
     },
     {
       "key": "GOOGLE_CLIENT_SECRET",
       "description": "Google OAuth client secret (keep secret)",
       "value": "",
-      "target": ["production"]
+      "target": [
+        "production"
+      ]
     },
     {
       "key": "GOOGLE_DRIVE_REDIRECT_URI",
       "description": "Google Drive OAuth redirect URI",
       "value": "https://your-domain.vercel.app/auth/google/callback",
-      "target": ["production"]
+      "target": [
+        "production"
+      ]
     },
     {
       "key": "NEXT_PUBLIC_APP_URL",
       "description": "App URL for links and redirects",
       "value": "https://your-domain.vercel.app",
-      "target": ["production"]
+      "target": [
+        "production"
+      ]
     }
   ]
 }
